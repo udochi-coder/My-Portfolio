@@ -188,7 +188,7 @@ function App() {
           </div>
           <div className="two-col after-love">
             <div><h2>I enjoy the <span className="gradient-text">problem.</span></h2></div>
-            <div className="copy-block"><p>I love software engineering because I enjoy solving problems. There’s something satisfying about taking a problem that looks complicated, breaking it down, understanding how the pieces connect, and eventually watching everything work.</p><p>I particularly enjoy backend development — designing APIs, working with databases, building business logic and figuring out how systems should communicate.</p><p className="django-joke">And then there is Django. <strong>Django and I have a very healthy relationship.</strong><br />We argue sometimes. Usually about serializers. But we’re good. 😂</p></div>
+            <div className="copy-block"><p>I love software engineering because I enjoy solving problems. There’s something satisfying about taking a problem that looks complicated, breaking it down, understanding how the pieces connect, and eventually watching everything work.</p><p>I particularly enjoy backend development ; designing APIs, working with databases, building business logic and figuring out how systems should communicate.</p><p className="django-joke">And then there is Django. <strong>Django and I have a very healthy relationship.</strong><br />We argue sometimes. Usually about serializers. But we’re good. 😂</p></div>
           </div>
         </section>
 
@@ -196,7 +196,7 @@ function App() {
           <div className="section-label">03 / WHY I BUILD</div>
           <div className="why-build">
             <div><h2>I don’t just want to <span className="gradient-text">write code.</span></h2></div>
-            <div><p className="lead">I want to build things that solve actual problems.</p><p>I’m interested in software that makes someone’s life easier — whether that’s helping someone order food, manage information, access results, track finances, or connect people with opportunities.</p><p>Give me a messy problem. I’ll probably ask a lot of questions first. Then I’ll try to build something.</p></div>
+            <div><p className="lead">I want to build things that solve actual problems.</p><p>I’m interested in software that makes someone’s life easier ; whether that’s helping someone order food, manage information, access results, track finances, or connect people with opportunities.</p><p>Give me a messy problem. I’ll probably ask a lot of questions first. Then I’ll try to build something.</p></div>
           </div>
         </section>
 
@@ -205,7 +205,7 @@ function App() {
           <h2 className="wide-title">Not a straight line.<br /><span className="gradient-text">Still going forward.</span></h2>
           <div className="timeline">
             {timeline.map(([year, title, text]) => <div className="timeline-item" key={year}><div className="timeline-dot" /><div className="timeline-year">{year}</div><div><h4>{title}</h4><p>{text}</p></div></div>)}
-            <div className="timeline-item future"><div className="timeline-dot" /><div className="timeline-year">2026 → 🇨🇦</div><div><h4>Next stop: Canada.</h4><p>I’m relocating to Canada by November 2026. New country. New opportunities. Same obsession with solving problems.</p></div></div>
+            <div className="timeline-item future"><div className="timeline-dot" /><div className="timeline-year">2026 → 🇨🇦</div><div><h4>Next stop: Canada.</h4><p>I’m relocating to Canada before the end of  2026. New country. New opportunities. Same obsession with solving problems.</p></div></div>
           </div>
         </section>
 
@@ -255,7 +255,7 @@ function App() {
 
         <section className="ambition section-pad">
           <div className="ambition-grid" />
-          <div className="ambition-content"><span className="section-label">08 / THE AMBITION</span><h2>I’M <span>NOT</span><br />DONE.</h2><div className="ambition-copy"><p>I want to become a stronger software engineer. I want to work on products that solve meaningful problems. I want to keep learning.</p><p>I want to work with people who challenge me to think better. I want to build systems that people actually use. And I want to keep pushing myself outside what I already know.</p><h3>So what’s next?</h3><div className="canada">Canada. 🇨🇦</div><p>I’m relocating to Canada by November 2026. I’m excited about what comes next — new environments, new challenges, new people and new opportunities to contribute.</p><div className="principles"><span>Learn fast.</span><span>Build well.</span><span>Solve problems.</span><span>Keep growing.</span></div></div></div>
+          <div className="ambition-content"><span className="section-label">08 / THE AMBITION</span><h2>I’M <span>NOT</span><br />DONE.</h2><div className="ambition-copy"><p>I want to become a stronger software engineer. I want to work on products that solve meaningful problems. I want to keep learning.</p><p>I want to work with people who challenge me to think better. I want to build systems that people actually use. And I want to keep pushing myself outside what I already know.</p><h3>So what’s next?</h3><div className="canada">Canada. 🇨🇦</div><p>I’m relocating to Canada before the end of 2026. I’m excited about what comes next:new environments, new challenges, new people and new opportunities to contribute.</p><div className="principles"><span>Learn fast.</span><span>Build well.</span><span>Solve problems.</span><span>Keep growing.</span></div></div></div>
         </section>
 
         <section id="contact" className="section section-pad contact-section">
