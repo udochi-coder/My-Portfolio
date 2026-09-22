@@ -205,7 +205,7 @@ function App() {
           <h2 className="wide-title">Not a straight line.<br /><span className="gradient-text">Still going forward.</span></h2>
           <div className="timeline">
             {timeline.map(([year, title, text]) => <div className="timeline-item" key={year}><div className="timeline-dot" /><div className="timeline-year">{year}</div><div><h4>{title}</h4><p>{text}</p></div></div>)}
-            <div className="timeline-item future"><div className="timeline-dot" /><div className="timeline-year">2026 → 🇨🇦</div><div><h4>Next stop: Canada.</h4><p>I’m relocating to Canada before the end of  2026. New country. New opportunities. Same obsession with solving problems.</p></div></div>
+            <div className="timeline-item future"><div className="timeline-dot" /><div className="timeline-year">2026 → </div><div><h4>Next Chapter unlocked.. 🚀</h4><p>Better systems.Bigger problems.More things to build</p></div></div>
           </div>
         </section>
 
@@ -255,7 +255,8 @@ function App() {
 
         <section className="ambition section-pad">
           <div className="ambition-grid" />
-          <div className="ambition-content"><span className="section-label">08 / THE AMBITION</span><h2>I’M <span>NOT</span><br />DONE.</h2><div className="ambition-copy"><p>I want to become a stronger software engineer. I want to work on products that solve meaningful problems. I want to keep learning.</p><p>I want to work with people who challenge me to think better. I want to build systems that people actually use. And I want to keep pushing myself outside what I already know.</p><h3>So what’s next?</h3><div className="canada">Canada. 🇨🇦</div><p>I’m relocating to Canada before the end of 2026. I’m excited about what comes next:new environments, new challenges, new people and new opportunities to contribute.</p><div className="principles"><span>Learn fast.</span><span>Build well.</span><span>Solve problems.</span><span>Keep growing.</span></div></div></div>
+          <div className="ambition-content"><span className="section-label">08 / THE AMBITION</span><h2>I’M <span>NOT</span><br />DONE.</h2><div className="ambition-copy"><p>I want to become a stronger software engineer. I want to work on products that solve meaningful problems. I want to keep learning.</p><p>I want to work with people who challenge me to think better. I want to build systems that people actually use. And I want to keep pushing myself outside what I already know.</p><h3>So what’s next?</h3><div className="canada">New environments. New challenges. New opportunities to build.</div><p> Wherever the next chapter takes me, my goal is simple:
+.</p><div className="principles"><span>Learn fast.</span><span>Build well.</span><span>Solve problems.</span><span>Keep growing.</span></div></div></div>
         </section>
 
         <section id="contact" className="section section-pad contact-section">
