@@ -71,8 +71,8 @@ const projects = [
     description: 'A problem I actually care about solving: connecting menial job workers directly with employers. The Django REST API supports onboarding, profiles, job posting, requests and matching.',
     stack: ['Django', 'DRF', 'APIs', 'Matching'],
     image: '/images/oyawork.jpeg',
-    link: null,
-    label: 'Currently building'
+    link: 'https://oyawork-seven.vercel.app/',
+    label: 'Open OyaWork',
   }
 ];
  
