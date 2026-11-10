@@ -26,6 +26,17 @@ npm install
 npm run dev
 ```
 
+## How it renders
+
+`npm run build` does three things:
+1. `vite build` builds the browser bundle into `dist/`.
+2. `vite build --ssr src/entry-server.jsx` builds a small server bundle.
+3. `scripts/prerender.mjs` renders the whole page to HTML and writes it into `dist/index.html`.
+
+So the full content (projects, About, contact) is in the initial HTML for search engines, link previews and AI tools. In the browser, React then *hydrates* that HTML (see `src/main.jsx`) and the animations and interactions take over. `npm run dev` still renders client-side as usual.
+
+Keep code that touches `window`, `document` or `localStorage` inside `useEffect` or event handlers, so prerendering keeps working.
+
 ## Deploy
 
 Vercel, framework preset **Vite**, build command `npm run build`, output `dist`. No environment variables are needed. `vite` is in `dependencies` on purpose, so production installs work.
