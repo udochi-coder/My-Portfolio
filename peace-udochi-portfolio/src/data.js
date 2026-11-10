@@ -1,7 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 //  ALL SITE CONTENT LIVES HERE.
 //  Edit this file to update text, projects and links.
-//  You should rarely need to touch main.jsx or styles.css.
 // ─────────────────────────────────────────────────────────────
 
 export const profile = {
@@ -12,20 +11,18 @@ export const profile = {
   github: 'https://github.com/udochi-coder',
   linkedin: 'https://www.linkedin.com/in/udochi-peace',
   cv: '/Peace-Udochi-CV.pdf',
-  available: 'Open to backend & full-stack roles'
+  openTo: ['backend roles', 'full-stack roles', 'remote', 'Lagos']
 };
 
-// TODO: paste the GitHub link for each project into `repo`.
-// A "Code" button appears automatically once `repo` is filled in.
-// `learned` is optional: one or two honest sentences about what was
-// hard or what you would do differently. It shows in the case study.
+// Main projects.
+// TODO: paste each GitHub link into `repo`. A "Code" link appears once filled.
+// `learned` is optional: one honest sentence about what was hard.
 export const projects = [
   {
     id: 'manharrtan',
-    featured: true,
     title: 'Manharrtan Capital',
-    kicker: 'Client project · Live in production',
-    year: '2026',
+    type: 'Client project, live in production',
+    year: 2026,
     summary:
       'Production website and loan application platform for a Lagos finance firm, built end to end in a one-month contract.',
     problem:
@@ -46,10 +43,9 @@ export const projects = [
   {
     id: 'oyawork',
     title: 'OyaWork',
-    kicker: 'Job marketplace · In progress',
-    year: '2026',
-    summary:
-      'Connects menial job workers in Lagos directly with employers.',
+    type: 'Job marketplace, in progress',
+    year: 2026,
+    summary: 'Connects menial job workers in Lagos directly with employers.',
     problem:
       'A problem I actually care about: making it easy for employers to find and hire menial job workers directly.',
     built: [
@@ -66,10 +62,9 @@ export const projects = [
   {
     id: 'fooddash',
     title: 'FoodDash',
-    kicker: 'Food ordering & delivery',
-    year: '2025',
-    summary:
-      'Full-stack food ordering platform with a Go backend and a React frontend.',
+    type: 'Food ordering and delivery',
+    year: 2025,
+    summary: 'Full-stack food ordering platform with a Go backend and a React frontend.',
     problem:
       'Because apparently ordering food wasn’t complicated enough. Customers, restaurants, orders and payments all share the same data.',
     built: [
@@ -83,14 +78,12 @@ export const projects = [
     repo: ''
   },
   {
-    id: 'result',
+    id: 'result-portal',
     title: 'Result Portal',
-    kicker: 'Academic results platform',
-    year: '2025',
-    summary:
-      'A Django portal where students sign in and view their academic results.',
-    problem:
-      'Students should be able to see their results without suffering.',
+    type: 'Academic results platform',
+    year: 2025,
+    summary: 'A Django portal where students sign in and view their academic results.',
+    problem: 'Students should be able to see their results without suffering.',
     built: [
       'Backend logic and data models for managing academic results',
       'Student-facing portal for signing in and viewing results'
@@ -100,106 +93,141 @@ export const projects = [
     image: '/images/result-portal.jpeg',
     live: 'https://northstar-uni.vercel.app/',
     repo: ''
-  }
-];
-
-// Smaller builds, shown as compact cards.
-export const otherWork = [
+  },
   {
-    tag: 'API · Flask & FastAPI',
+    id: 'student-api',
     title: 'Student Management API',
-    text: 'The same student records API built twice, in Flask and in FastAPI, with CRUD for students, courses and enrolments, Pydantic validation, async endpoints and structured errors.',
+    type: 'API, built twice',
+    year: 2025,
+    summary:
+      'The same student records API, built in Flask and again in FastAPI.',
+    problem: 'One student records API, built in two Python frameworks.',
+    built: [
+      'CRUD for students, courses and enrolments',
+      'Request validation and structured error responses',
+      'Pydantic schemas and async endpoints in the FastAPI version'
+    ],
+    learned: '',
+    stack: ['Flask', 'FastAPI', 'Pydantic'],
+    image: null,
     live: '',
     repo: ''
   },
   {
-    tag: 'Frontend · React',
+    id: 'ecommerce',
     title: 'E-commerce App',
-    text: 'Responsive storefront with product listings, a cart (add, update, remove) and a checkout flow.',
+    type: 'React storefront',
+    year: 2025,
+    summary: 'Responsive storefront with product listings, a cart and a checkout flow.',
+    problem: 'A storefront that covers the whole shopping flow, from listing to checkout.',
+    built: ['Product listings', 'Cart with add, update and remove', 'Checkout flow'],
+    learned: '',
+    stack: ['React', 'Redux'],
+    image: '/images/ecommerce.jpeg',
     live: 'https://e-commerce-app-kappa-opal.vercel.app/',
     repo: ''
   },
   {
-    tag: 'Frontend · React + Firebase',
+    id: 'budget-tracker',
     title: 'Budget Tracker',
-    text: 'Tracks income, expenses and categories, with Firebase for storage and hosting.',
+    type: 'Personal finance app',
+    year: 2025,
+    summary: 'Tracks income, expenses and categories. Where did my money go?',
+    problem: 'Where did my money go? I wanted an answer with categories.',
+    built: ['Income and expense tracking by category', 'Firebase for storage and hosting'],
+    learned: '',
+    stack: ['React', 'Firebase'],
+    image: null,
     live: 'https://budgettracker-632f3.web.app',
     repo: ''
   }
 ];
 
-export const experience = [
+// Career as a git log, newest first.
+// lane: 'eng' (engineering branch) or 'ops' (operations branch).
+// kind: 'merge' | 'branch' | 'root' for the special graph rows.
+export const history = [
   {
-    role: 'Backend Engineering Intern',
-    org: 'Tavcorp',
-    meta: 'Remote',
-    date: '2026 – Present',
-    points: [
+    lane: 'eng', ref: 'HEAD → engineering', type: 'feat', scope: 'tavcorp',
+    msg: 'join as Backend Engineering Intern', date: '2026 – now',
+    body: [
       'Build and maintain backend services and REST APIs in Python (Django, FastAPI)',
       'Design data models and write queries with a focus on data integrity',
       'Ship features with frontend developers; join code reviews and standups'
     ]
   },
   {
-    role: 'AI Data Trainer',
-    org: 'SuperAnnotate',
-    meta: 'Contract · Remote',
-    date: '2026 – Present',
-    points: [
+    lane: 'eng', type: 'feat', scope: 'superannotate',
+    msg: 'review AI-generated code as an AI Data Trainer', date: '2026 – now',
+    body: [
       'Review AI-generated code and content for correctness and edge cases',
       'Write clear, guideline-based feedback to improve model accuracy'
     ]
   },
   {
-    role: 'Full-Stack Engineer',
-    org: 'Manharrtan Capital',
-    meta: 'Contract',
-    date: '2026',
-    points: [
-      'Built and deployed the company’s production site and loan platform end to end (see Selected Work)'
+    lane: 'eng', type: 'feat', scope: 'manharrtan',
+    msg: 'ship a production loan platform on AWS', date: '2026',
+    body: ['Full-stack contract: Next.js, Django REST, Docker, EC2, RDS, S3, Nginx']
+  },
+  {
+    lane: 'eng', type: 'docs', scope: 'edpassare',
+    msg: 'teach Django as a Full-Stack Python Instructor', date: '2026',
+    body: [
+      'Teach models, views, templates and URL routing',
+      'Review students’ code with written feedback'
     ]
   },
   {
-    role: 'Full-Stack Python Instructor',
-    org: 'EdPassare Tech School',
-    meta: 'Contract',
-    date: '2026',
-    points: [
-      'Teach Django: models, views, templates and URL routing',
-      'Guide students through full-stack builds and review their code'
-    ]
+    lane: 'eng', kind: 'merge', type: 'merge', scope: '',
+    msg: 'Merge branch ‘operations’ into engineering', date: '2026',
+    body: ['Everything I learned running teams, customers and logistics comes with me.']
   },
   {
-    role: 'Software Engineer Trainee',
-    org: 'Semicolon Africa',
-    meta: 'Lagos',
-    date: '2025 – 2026',
-    points: [
-      'Built and consumed REST APIs in cross-functional teams',
-      'Code reviews, Agile ceremonies and data structures & algorithms'
-    ]
+    lane: 'ops', ref: 'operations', type: 'feat', scope: 'healthily-vitae',
+    msg: 'promoted to Head of Operations', date: '2025 – 26', body: []
+  },
+  {
+    lane: 'eng', type: 'feat', scope: 'semicolon',
+    msg: 'start Software Engineering diploma at Semicolon Africa', date: '2025 – 26',
+    body: ['Built and consumed REST APIs in cross-functional teams', 'Code reviews, Agile, data structures and algorithms']
+  },
+  {
+    lane: 'ops', type: 'feat', scope: 'healthily-vitae',
+    msg: 'run customer fulfilment and logistics', date: '2024 – 25', body: []
+  },
+  {
+    lane: 'ops', type: 'feat', scope: 'ejim',
+    msg: 'sell, with targets and metrics, as Sales Manager', date: '2024', body: []
+  },
+  {
+    lane: 'eng', kind: 'branch', type: 'feat', scope: 'altschool',
+    msg: 'branch off: Cloud Engineering diploma at AltSchool Africa', date: '2024 – 25', body: []
+  },
+  {
+    lane: 'ops', type: 'feat', scope: 'intertrade',
+    msg: 'lead a call center team as Call Center Manager', date: '2023 – 24', body: []
+  },
+  {
+    lane: 'ops', type: 'feat', scope: 'native-delight',
+    msg: 'manage inventory and deliveries as Logistics Manager', date: '2023 – 24', body: []
+  },
+  {
+    lane: 'ops', type: 'chore', scope: 'imsu',
+    msg: 'graduate with a B.Sc. in Accounting', date: '2023', body: []
+  },
+  {
+    lane: 'ops', type: 'feat', scope: 'midnight-city',
+    msg: 'handle customers as a Customer Service Rep', date: '2023', body: []
+  },
+  {
+    lane: 'ops', kind: 'root', type: 'init', scope: '',
+    msg: 'first job: front desk at C&A Bakery', date: '2020', body: []
   }
 ];
 
-// The pre-tech career, condensed into one line each.
-export const earlierCareer = [
-  ['2025 – 26', 'Head of Operations', 'Healthily Vitae NG'],
-  ['2024 – 25', 'Head, Customer Fulfilment', 'Healthily Vitae NG'],
-  ['2024', 'Sales Manager', 'Ejim Ltd'],
-  ['2023 – 24', 'Call Center Manager', 'Intertrade Supply'],
-  ['2023 – 24', 'Logistics Manager', 'Native Delight'],
-  ['2020 – 23', 'Customer Service & Front Desk', 'Restaurants & retail']
-];
-
-export const education = [
-  ['Semicolon Africa', 'Diploma in Software Engineering', '2025 – 26'],
-  ['AltSchool Africa', 'Diploma in Cloud Engineering', '2024 – 25'],
-  ['Imo State University', 'B.Sc. Accounting', '2023']
-];
-
-export const stack = [
-  { group: 'Backend', items: ['Python', 'Django', 'Django REST Framework', 'FastAPI', 'Flask', 'Go'] },
-  { group: 'Frontend', items: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Redux'] },
-  { group: 'Data', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firebase'] },
-  { group: 'Cloud & DevOps', items: ['AWS (EC2, RDS, S3, IAM)', 'Docker', 'Nginx', 'CI/CD', 'Vercel'] }
-];
+export const stack = {
+  backend: ['Python', 'Django', 'Django REST Framework', 'FastAPI', 'Flask', 'Go'],
+  frontend: ['TypeScript', 'React', 'Next.js', 'Redux'],
+  data: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firebase'],
+  infra: ['AWS (EC2, RDS, S3, IAM)', 'Docker', 'Nginx', 'CI/CD', 'Vercel']
+};
