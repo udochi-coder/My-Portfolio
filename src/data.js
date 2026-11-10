@@ -12,7 +12,7 @@ export const site = {
   // Contact form delivery (Web3Forms). Paste your Web3Forms access key here.
   // It is safe to be public: it only lets people send messages to you.
   // Until a key is set, the form opens a pre-filled Gmail message instead.
-  web3formsKey: ''
+  web3formsKey: '4155a8d0-08b8-4f07-87b4-be255d43f3f8'
 };
 
 export const profile = {
