@@ -1,23 +1,38 @@
 # Peace Udochi — Portfolio
 
-Minimal, editorial portfolio built with React + Vite. No UI libraries; fonts (Geist, Geist Mono) are self-hosted through npm.
+Dark, editorial portfolio for a software engineer, built with React + Vite and prerendered to static HTML at build time. No UI libraries; fonts (Archivo, Geist) are self-hosted through npm.
 
-## What's on the page
+## Sections
 
-- **Hero:** oversized name (letters thicken as the cursor passes), identity, intro and current status, plus a live Lagos clock in the header.
-- **Selected work:** a typographic index (hover shows a floating preview), then a large image gallery. Every project opens a full project view with the problem, what was built, the stack and links. Project views have shareable links like `/#fooddash`.
-- **About:** statement, story, capabilities and experience.
-- **Contact:** email, LinkedIn, GitHub and CV.
+- **Profile card** (sticky on desktop): photo, name, title, email (copyable), GitHub, LinkedIn, CV and a "Let's work together" button.
+- **Hero:** oversized two-tone "Software Engineer" heading, intro and project facts.
+- **Selected projects:** large previews, descriptions, technologies, live and GitHub links, plus smaller builds.
+- **Experience:** timeline from the CV, earlier career and education.
+- **Tools & technologies:** monogram tiles (no brand logos) and a list of other tools.
+- **About** and **Contact** (working form plus email, LinkedIn and GitHub).
+- A floating dock navigation highlights the section on screen.
 
 ## Editing content
 
-Everything lives in **`src/data.js`**: profile, projects, smaller builds, experience and capabilities.
+Everything lives in **`src/data.js`**: profile, intro, projects, experience, education and tools.
 
-**To add a project (e.g. Campus Haven):**
-1. Put a screenshot in `public/work/`. A tall phone screenshot works best at 900 × 1200 (`shape: 'phone'`); a desktop screenshot can be any wide size (`shape: 'wide'`).
-2. Copy one of the project blocks in `src/data.js` and fill in the real details.
+- **Add a project (e.g. Campus Haven):** put a screenshot in `public/work/` (phone screenshots work best at 900 × 1200), then copy a project block in `src/data.js` and fill in the real details.
+- **GitHub links:** paste a repo URL into a project's `repo` field and a "GitHub" link appears.
+- **Photo:** `public/me/`. The originals are cropped and compressed only; the photo isn't otherwise edited.
 
-Add GitHub links to each project's `repo` field to show a "Source code" button.
+## Contact form
+
+The form posts to [FormSubmit](https://formsubmit.co) (no account or API key needed). **The first time someone submits it, FormSubmit emails you an activation link — click it once and messages start arriving.** After activating, you can replace the address in `site.formEndpoint` (`src/data.js`) with the random alias FormSubmit gives you, so your address isn't in the page source. If sending fails, visitors are shown your email address instead.
+
+## SEO and AI discoverability
+
+- `npm run build` prerenders the whole page, so names, projects, skills and experience are in the initial HTML. React then hydrates it.
+- `scripts/prerender.mjs` also injects JSON-LD (`Person`, `WebSite`, `ProfilePage` and an `ItemList` of projects) generated from `src/data.js`, and updates the sitemap's `<lastmod>`.
+- Title, description, canonical, Open Graph and X/Twitter tags are in `index.html`. The sharing image is `public/og.jpg`.
+- `public/robots.txt` allows search engines and AI search crawlers (OAI-SearchBot, ChatGPT-User, PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User). Model-training crawlers (GPTBot, ClaudeBot, Google-Extended) are also allowed; change their lines to `Disallow: /` to opt out of training without affecting search. Allowing a crawler doesn't guarantee indexing.
+- **Google Search Console:** add the site as a URL-prefix property, choose "HTML tag", paste only the `content` value into `site.googleSiteVerification` in `src/data.js`, push, then click Verify. Then submit `/sitemap.xml`.
+
+If the domain changes, update it in `src/data.js`, `index.html`, `public/robots.txt` and `public/sitemap.xml`.
 
 ## Run locally
 
@@ -26,19 +41,11 @@ npm install
 npm run dev
 ```
 
-## How it renders
+## Build and deploy
 
-`npm run build` does three things:
-1. `vite build` builds the browser bundle into `dist/`.
-2. `vite build --ssr src/entry-server.jsx` builds a small server bundle.
-3. `scripts/prerender.mjs` renders the whole page to HTML and writes it into `dist/index.html`.
+```bash
+npm run build     # vite build → SSR bundle → prerender into dist/
+npm run preview
+```
 
-So the full content (projects, About, contact) is in the initial HTML for search engines, link previews and AI tools. In the browser, React then *hydrates* that HTML (see `src/main.jsx`) and the animations and interactions take over. `npm run dev` still renders client-side as usual.
-
-Keep code that touches `window`, `document` or `localStorage` inside `useEffect` or event handlers, so prerendering keeps working.
-
-## Deploy
-
-Vercel, framework preset **Vite**, build command `npm run build`, output `dist`. No environment variables are needed. `vite` is in `dependencies` on purpose, so production installs work.
-
-SEO: meta tags, an Open Graph image (`public/og.jpg`), JSON-LD, `robots.txt` and `sitemap.xml` all use `https://my-portfolio-seven-lovat-26.vercel.app`. Update them if the domain changes.
+Vercel reads `vercel.json` (Vite, `npm run build`, output `dist`). No environment variables are needed. Keep browser-only code (`window`, `document`) inside `useEffect` or event handlers so prerendering keeps working.
