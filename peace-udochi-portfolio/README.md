@@ -1,6 +1,19 @@
 # Peace Udochi — Portfolio
 
-A polished React + Vite portfolio for Peace Udochi, with a purple/pink developer aesthetic, interactive sections, project case-study cards, tech marquee, code-love slider, terminal animation, responsive navigation and downloadable CV.
+React + Vite portfolio. Live projects, experience, stack and contact, in a dark purple/pink style.
+
+## Editing content
+
+Almost everything you'll want to change is in **`src/data.js`**:
+
+- `projects`: main project cards. Fill in `repo` with each GitHub link to show a "Code" button, and add a `learned` sentence to show "What I learned" in the case study.
+- `otherWork`: smaller builds.
+- `experience`, `earlierCareer`, `education`, `stack`: the other sections.
+- `profile`: name, email, links, CV path and availability line.
+
+Screenshots go in `public/images/`, and the CV is `public/Peace-Udochi-CV.pdf`.
+
+After deploying, set your real domain in the `og:image` / `og:url` tags in `index.html` so link previews work.
 
 ## Run locally
 
@@ -9,29 +22,13 @@ npm install
 npm run dev
 ```
 
-Then open the local Vite URL shown in your terminal.
-
-## Build for production
+## Build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Deploy to Vercel
+## Deploy (Vercel)
 
-1. Push this folder to GitHub.
-2. Go to Vercel and import the GitHub repository.
-3. Framework preset: **Vite**.
-4. Build command: `npm run build`.
-5. Output directory: `dist`.
-6. Deploy.
-
-No environment variables are required for this portfolio.
-
-## Files to customise
-
-- `src/main.jsx` — content, project links and sections.
-- `src/styles.css` — visual design, colors and responsive layout.
-- `public/images/` — project screenshots.
-- `public/Peace-Udochi-CV.pdf` — downloadable CV.
+Import the GitHub repo in Vercel, framework preset **Vite**, build command `npm run build`, output `dist`. No environment variables needed.
