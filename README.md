@@ -1,28 +1,23 @@
 # Peace Udochi — Portfolio
 
-React + Vite portfolio built like a running backend system:
+Minimal, editorial portfolio built with React + Vite. No UI libraries; fonts (Geist, Geist Mono) are self-hosted through npm.
 
-- **Hero:** a live architecture diagram. Visitors send requests (`GET /peace`, `GET /peace/cv`…) and watch a packet travel through Nginx → Django/Go → PostgreSQL/S3, then see the response.
-- **Projects:** an API explorer. Each project is a route, viewable as a page or as raw JSON.
-- **History:** a `git log` where the operations branch merges into engineering.
-- **Hire:** a `POST /peace/hire` form that shows the request body live, then opens the visitor's email app.
+## What's on the page
 
-Fonts (Bricolage Grotesque, JetBrains Mono) are bundled through npm, so there are no external requests.
+- **Hero:** oversized name (letters thicken as the cursor passes), identity, intro and current status, plus a live Lagos clock in the header.
+- **Selected work:** a typographic index (hover shows a floating preview), then a large image gallery. Every project opens a full project view with the problem, what was built, the stack and links. Project views have shareable links like `/#fooddash`.
+- **About:** statement, story, capabilities and experience.
+- **Contact:** email, LinkedIn, GitHub and CV.
 
 ## Editing content
 
-Almost everything you'll want to change is in **`src/data.js`**:
+Everything lives in **`src/data.js`**: profile, projects, smaller builds, experience and capabilities.
 
-- `projects`: main project cards. Fill in `repo` with each GitHub link to show a "Code" button, and add a `learned` sentence to show "What I learned" in the case study.
-- `history`: the git log. `lane` is `eng` or `ops`; rows with `kind: 'merge'`, `'branch'` or `'root'` draw the graph curves.
-- `stack`: shown in the `GET /peace/stack` response and in `requirements.txt`.
-- `profile`: name, email, links and CV path.
+**To add a project (e.g. Campus Haven):**
+1. Put a screenshot in `public/work/`. A tall phone screenshot works best at 900 × 1200 (`shape: 'phone'`); a desktop screenshot can be any wide size (`shape: 'wide'`).
+2. Copy one of the project blocks in `src/data.js` and fill in the real details.
 
-The responses for the hero requests are in `ROUTES` near the top of `src/main.jsx`.
-
-Screenshots go in `public/images/`, and the CV is `public/Peace-Udochi-CV.pdf`.
-
-After deploying, set your real domain in the `og:image` / `og:url` tags in `index.html` so link previews work.
+Add GitHub links to each project's `repo` field to show a "Source code" button.
 
 ## Run locally
 
@@ -31,13 +26,8 @@ npm install
 npm run dev
 ```
 
-## Build
+## Deploy
 
-```bash
-npm run build
-npm run preview
-```
+Vercel, framework preset **Vite**, build command `npm run build`, output `dist`. No environment variables are needed. `vite` is in `dependencies` on purpose, so production installs work.
 
-## Deploy (Vercel)
-
-Import the GitHub repo in Vercel, framework preset **Vite**, build command `npm run build`, output `dist`. No environment variables needed.
+SEO: meta tags, an Open Graph image (`public/og.jpg`), JSON-LD, `robots.txt` and `sitemap.xml` all use `https://my-portfolio-seven-lovat-26.vercel.app`. Update them if the domain changes.
