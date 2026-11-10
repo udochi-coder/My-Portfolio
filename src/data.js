@@ -9,8 +9,10 @@ export const site = {
   url: 'https://my-portfolio-seven-lovat-26.vercel.app',
   // Google Search Console → "HTML tag" method: paste only the content="…" value here.
   googleSiteVerification: '',
-  // Contact form delivery (FormSubmit). See README → "Contact form".
-  formEndpoint: 'https://formsubmit.co/ajax/ashiegbuudochi@gmail.com'
+  // Contact form delivery (Web3Forms). Paste your Web3Forms access key here.
+  // It is safe to be public: it only lets people send messages to you.
+  // Until a key is set, the form opens a pre-filled Gmail message instead.
+  web3formsKey: ''
 };
 
 export const profile = {

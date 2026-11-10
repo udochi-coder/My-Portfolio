@@ -351,23 +351,31 @@ function ContactForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
-    if (data._honey) return; // bot trap
+    if (data.botcheck) return; // bot trap
+
+    // No key configured yet: fall back to a pre-filled Gmail message.
+    if (!site.web3formsKey) {
+      const url = `${gmailCompose(profile.email)}&body=${encodeURIComponent(`${data.message}\n\n— ${data.name} (${data.email})`)}`;
+      window.open(url, '_blank', 'noopener');
+      return;
+    }
+
     setState('sending');
     try {
-      const res = await fetch(site.formEndpoint, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
+          access_key: site.web3formsKey,
+          subject: `Portfolio message from ${data.name}`,
+          from_name: 'Peace Udochi portfolio',
           name: data.name,
           email: data.email,
-          message: data.message,
-          _subject: `Portfolio message from ${data.name}`,
-          _template: 'table',
-          _captcha: 'false'
+          message: data.message
         })
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.success === 'false' || json.success === false) throw new Error('send failed');
+      if (!res.ok || !json.success) throw new Error(json.message || 'send failed');
       setState('sent');
       form.reset();
     } catch {
@@ -389,7 +397,7 @@ function ContactForm() {
         <label htmlFor="f-msg">Message</label>
         <textarea id="f-msg" name="message" rows="5" required placeholder="A role, a project, or a problem you’d like help with" />
       </div>
-      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hp" aria-hidden="true" />
+      <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hp" aria-hidden="true" />
       <button className="btn btn-accent" type="submit" disabled={state === 'sending'}>
         {state === 'sending' ? 'Sending…' : 'Send message'}
       </button>

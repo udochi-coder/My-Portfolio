@@ -22,7 +22,7 @@ Everything lives in **`src/data.js`**: profile, intro, projects, experience, edu
 
 ## Contact form
 
-The form posts to [FormSubmit](https://formsubmit.co) (no account or API key needed). **The first time someone submits it, FormSubmit emails you an activation link — click it once and messages start arriving.** After activating, you can replace the address in `site.formEndpoint` (`src/data.js`) with the random alias FormSubmit gives you, so your address isn't in the page source. If sending fails, visitors are shown your email address instead.
+The form sends messages through [Web3Forms](https://web3forms.com). Get a free access key at web3forms.com (enter your email; the key arrives by email) and paste it into `site.web3formsKey` in `src/data.js`. The key is meant to be public: it only allows sending messages to you. Until a key is set, submitting the form opens a pre-filled Gmail message instead. If sending fails, visitors are shown your email address.
 
 ## SEO and AI discoverability
 
