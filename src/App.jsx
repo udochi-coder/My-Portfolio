@@ -204,16 +204,23 @@ function Projects() {
         {projects.map((p, n) => (
           <article className={`project ${p.shape}`} key={p.id} id={p.id} aria-labelledby={`${p.id}-t`} data-reveal>
             <a className="project-media" href={p.live || undefined} {...(p.live ? ext : {})} tabIndex={-1} aria-hidden="true">
-              <span className="screen">
-                <img src={p.cover} alt="" loading={n < 1 ? 'eager' : 'lazy'} decoding="async" width={p.shape === 'wide' ? 1400 : 900} height={p.shape === 'wide' ? 673 : 1200} />
-              </span>
+              {p.cover ? (
+                <span className="screen">
+                  <img src={p.cover} alt="" loading={n < 1 ? 'eager' : 'lazy'} decoding="async" width={p.shape === 'wide' ? 1400 : 900} height={p.shape === 'wide' ? 673 : 1200} />
+                </span>
+              ) : (
+                <span className="tile-art">
+                  <span className="tile-name">{p.title}</span>
+                  <span className="tile-stack">{p.stack.join(' · ')}</span>
+                </span>
+              )}
               <span className="media-arrow"><Icon name="arrow" size={22} /></span>
             </a>
             <div className="project-body">
               <p className="project-meta"><span>{pad(n + 1)}</span>{p.kind} · {p.year}</p>
               <h3 id={`${p.id}-t`} className="project-title">{p.title}</h3>
               <p className="project-summary">{p.summary}</p>
-              <p className="sr-only">Screenshot: {p.shot}</p>
+              {p.shot && <p className="sr-only">Screenshot: {p.shot}</p>}
               <ul className="chips" aria-label={`${p.title} technologies`}>
                 {p.stack.map((s) => <li key={s}>{s}</li>)}
               </ul>

@@ -155,6 +155,18 @@ img { display: block; max-width: 100%; height: auto; }
 .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .project:hover .phone .screen, .project:hover.phone .screen { transform: translateY(0) scale(1.02); }
 .project:hover.wide .screen { transform: scale(1.03); }
+.tile-art {
+  display: flex; flex-direction: column; justify-content: flex-end; align-self: stretch; justify-self: stretch;
+  padding: clamp(24px, 4vw, 44px); text-align: left;
+  background:
+    radial-gradient(70% 90% at 85% 10%, rgba(183, 148, 246, .22), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 44px);
+  transition: transform .9s var(--ease);
+}
+.tile-name { font-family: var(--display); font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: clamp(48px, 7vw, 104px); line-height: .86; color: var(--text); }
+.tile-stack { margin-top: 14px; font-size: 15px; color: var(--accent); font-weight: 600; }
+.project:hover .tile-art { transform: scale(1.02); }
 .media-arrow {
   position: absolute; right: 16px; top: 16px; width: 46px; height: 46px; border-radius: 50%;
   display: grid; place-items: center; background: var(--accent); color: var(--accent-ink);

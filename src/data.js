@@ -39,7 +39,8 @@ export const profile = {
 /*
   PROJECTS
   - `shot`   alt text: what the screenshot actually shows
-  - `shape`  'phone' for tall mobile screenshots, 'wide' for desktop ones
+  - `shape`  'phone' for tall mobile screenshots, 'wide' for desktop ones,
+             'tile' (with cover: null) for a project without a screenshot yet
   - `repo`   paste the GitHub link and a "GitHub" button appears
 
   To add Campus Haven: copy a block, fill in the real details and put
@@ -47,31 +48,17 @@ export const profile = {
 */
 export const projects = [
   {
-    id: 'fooddash',
-    title: 'FoodDash',
-    kind: 'Food ordering & delivery platform',
-    year: '2025',
+    id: 'oyawork',
+    title: 'OyaWork',
+    kind: 'Job marketplace, in progress',
+    year: '2026',
     summary:
-      'A full-stack food ordering platform. Customers browse the menu, build a cart and check out; a Go API handles authentication, restaurant management, orders and payments.',
-    stack: ['Go', 'React', 'REST APIs', 'Authentication'],
-    shot: 'FoodDash mobile home screen: a “What are you craving?” banner, menu categories and a burger listing priced in naira',
-    cover: '/work/fooddash-cover.webp',
+      'Connects menial job workers in Lagos directly with employers. A Django REST API for onboarding, worker and employer profiles, job posting, hiring requests and matching, with a React and TypeScript frontend.',
+    stack: ['Django REST', 'React', 'TypeScript', 'PostgreSQL'],
+    shot: 'OyaWork welcome screen reading “Find trusted workers near you” with an illustration of a worker and an employer shaking hands',
+    cover: '/work/oyawork-cover.webp',
     shape: 'phone',
-    live: 'https://food-dash-app-nine.vercel.app/',
-    repo: ''
-  },
-  {
-    id: 'result-portal',
-    title: 'Result Portal',
-    kind: 'Academic results platform',
-    year: '2025',
-    summary:
-      'A Django portal where students sign in and view their academic results. I built the backend logic and data models for managing results, and the student-facing sign-in and results pages.',
-    stack: ['Python', 'Django', 'PostgreSQL', 'Data modelling'],
-    shot: 'Result Portal sign-in screen for Northstar University, asking for a student email or ID and password',
-    cover: '/work/result-portal-cover.webp',
-    shape: 'phone',
-    live: 'https://northstar-uni.vercel.app/',
+    live: 'https://oyawork-seven.vercel.app/',
     repo: ''
   },
   {
@@ -89,17 +76,45 @@ export const projects = [
     repo: ''
   },
   {
-    id: 'oyawork',
-    title: 'OyaWork',
-    kind: 'Job marketplace, in progress',
-    year: '2026',
+    id: 'result-portal',
+    title: 'Result Portal',
+    kind: 'Academic results platform',
+    year: '2025',
     summary:
-      'Connects menial job workers in Lagos directly with employers. A Django REST API for onboarding, worker and employer profiles, job posting, hiring requests and matching, with a React and TypeScript frontend.',
-    stack: ['Django REST', 'React', 'TypeScript', 'PostgreSQL'],
-    shot: 'OyaWork welcome screen reading “Find trusted workers near you” with an illustration of a worker and an employer shaking hands',
-    cover: '/work/oyawork-cover.webp',
+      'A Django portal where students sign in and view their academic results. I built the backend logic and data models for managing results, and the student-facing sign-in and results pages.',
+    stack: ['Python', 'Django', 'PostgreSQL', 'Data modelling'],
+    shot: 'Result Portal sign-in screen for Northstar University, asking for a student email or ID and password',
+    cover: '/work/result-portal-cover.webp',
     shape: 'phone',
-    live: 'https://oyawork-seven.vercel.app/',
+    live: 'https://northstar-uni.vercel.app/',
+    repo: ''
+  },
+  {
+    id: 'fooddash',
+    title: 'FoodDash',
+    kind: 'Food ordering & delivery platform',
+    year: '2025',
+    summary:
+      'A full-stack food ordering platform. Customers browse the menu, build a cart and check out; a Go API handles authentication, restaurant management, orders and payments.',
+    stack: ['Go', 'React', 'REST APIs', 'Authentication'],
+    shot: 'FoodDash mobile home screen: a “What are you craving?” banner, menu categories and a burger listing priced in naira',
+    cover: '/work/fooddash-cover.webp',
+    shape: 'phone',
+    live: 'https://food-dash-app-nine.vercel.app/',
+    repo: ''
+  },
+  {
+    id: 'budget-tracker',
+    title: 'Budget Tracker',
+    kind: 'Personal finance app',
+    year: '2025',
+    summary:
+      'Where did my money go? A React app for tracking income, expenses and categories, with Firebase for data storage and hosting.',
+    stack: ['React', 'Firebase', 'JavaScript'],
+    shot: '',
+    cover: null,
+    shape: 'tile',
+    live: 'https://budgettracker-632f3.web.app',
     repo: ''
   },
   {
@@ -125,12 +140,6 @@ export const moreWork = [
     text: 'The same student records API built twice, in Flask and in FastAPI: CRUD for students, courses and enrolments, request validation and structured errors.',
     stack: ['Python', 'Flask', 'FastAPI'],
     live: ''
-  },
-  {
-    title: 'Budget Tracker',
-    text: 'Tracks income, expenses and categories, with Firebase for storage and hosting.',
-    stack: ['React', 'Firebase'],
-    live: 'https://budgettracker-632f3.web.app'
   }
 ];
 

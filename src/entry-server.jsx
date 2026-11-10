@@ -62,7 +62,7 @@ export function jsonLd() {
             description: p.summary,
             applicationCategory: 'WebApplication',
             operatingSystem: 'Web',
-            image: abs(p.cover),
+            ...(p.cover ? { image: abs(p.cover) } : {}),
             ...(p.live ? { url: p.live } : {}),
             ...(p.repo ? { codeRepository: p.repo } : {}),
             keywords: p.stack.join(', '),
