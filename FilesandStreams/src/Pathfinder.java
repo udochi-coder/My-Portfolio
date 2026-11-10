@@ -1,0 +1,2 @@
+public class Pathfinder {
+}
