@@ -19,7 +19,7 @@ export function jsonLd() {
       '@type': 'Person',
       '@id': personId,
       name: profile.name,
-      jobTitle: `${profile.title}, ${profile.specialty}`,
+      jobTitle: profile.specialty,
       description: `${profile.intro} ${profile.introMore}`,
       url: `${site.url}/`,
       image: abs(profile.photo.square),

@@ -16,7 +16,7 @@ export const site = {
 export const profile = {
   name: 'Peace Udochi',
   title: 'Software Engineer',
-  specialty: 'Backend & Full-Stack Developer',
+  specialty: 'Backend & Full-Stack Engineer',
   location: 'Lagos, Nigeria',
   email: 'ashiegbuudochi@gmail.com',
   github: 'https://github.com/udochi-coder',

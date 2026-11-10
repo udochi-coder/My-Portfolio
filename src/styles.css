@@ -99,11 +99,11 @@ img { display: block; max-width: 100%; height: auto; }
 .card-title { margin-top: 10px; font-size: 15px; font-weight: 600; line-height: 1.4; }
 .card-title span { color: var(--muted); font-weight: 500; }
 .card-loc { margin-top: 6px; font-size: 13px; color: var(--muted); }
-.card-email { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 20px; padding: 8px 8px 8px 14px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); font-size: 14px; }
-.card-email a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.card-email a:hover { color: var(--accent); }
-.card-email button { flex: none; border: 1px solid var(--line-2); background: var(--surface-2); border-radius: 9px; padding: 5px 10px; font-size: 12px; font-weight: 600; transition: border-color .2s; }
-.card-email button:hover { border-color: var(--accent); }
+.card-email { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 20px; padding: 8px 8px 8px 14px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); font-size: 14px; transition: border-color .2s, color .2s; }
+.card-email-addr { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-email-go { flex: none; display: grid; place-items: center; width: 32px; height: 28px; border-radius: 9px; border: 1px solid var(--line-2); background: var(--surface-2); transition: background .2s, color .2s, border-color .2s; }
+.card-email:hover { border-color: var(--accent); color: var(--accent); }
+.card-email:hover .card-email-go { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .card-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
 .card-links a { display: inline-flex; justify-content: center; align-items: center; gap: 4px; padding: 10px 0; border-radius: 12px; border: 1px solid var(--line); font-size: 13px; font-weight: 600; transition: border-color .2s, color .2s, background .2s; }
 .card-links a:hover { border-color: var(--accent); color: var(--accent); background: rgba(183, 148, 246, .06); }

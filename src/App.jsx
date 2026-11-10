@@ -115,17 +115,11 @@ function Dock() {
   );
 }
 
+// Opens a new message in Gmail (the Gmail app on most phones, Gmail in the browser on desktop).
+const gmailCompose = (to) =>
+  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent('Hello from your portfolio')}`;
+
 function ProfileCard() {
-  const [copied, setCopied] = useState(false);
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(profile.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      window.location.href = `mailto:${profile.email}`;
-    }
-  };
   return (
     <aside className="card" aria-label="About Peace Udochi">
       <div className="card-photo">
@@ -146,10 +140,10 @@ function ProfileCard() {
       <p className="card-title">{profile.title}<br /><span>{profile.specialty}</span></p>
       <p className="card-loc">Based in {profile.location}</p>
 
-      <div className="card-email">
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        <button type="button" onClick={copy} aria-live="polite">{copied ? 'Copied' : 'Copy'}</button>
-      </div>
+      <a className="card-email" href={gmailCompose(profile.email)} {...ext} aria-label={`Email ${profile.name} in Gmail: ${profile.email}`}>
+        <span className="card-email-addr">{profile.email}</span>
+        <span className="card-email-go" aria-hidden="true"><Icon name="mail" size={16} /></span>
+      </a>
 
       <div className="card-links">
         <a href={profile.github} {...ext}>GitHub <Icon name="arrow" size={14} /></a>

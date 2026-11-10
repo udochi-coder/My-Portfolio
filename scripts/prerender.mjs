@@ -27,11 +27,17 @@ if (!appHtml || appHtml.length < 2000) throw new Error('prerender: rendered HTML
 const ld = jsonLd().replace(/</g, '\\u003c');
 JSON.parse(jsonLd()); // fail the build if the structured data is invalid JSON
 
+// Build marker: lets anyone check which commit is actually live
+// (view source, or open /version.json). Vercel provides the commit SHA.
+const commit = (process.env.VERCEL_GIT_COMMIT_SHA || 'local').slice(0, 7);
+const builtAt = new Date().toISOString();
+
 html = html
   .replace(marker, `<div id="root">${appHtml}</div>`)
-  .replace('</head>', `    ${extraHead()}\n    <script type="application/ld+json">${ld}</script>\n  </head>`);
+  .replace('</head>', `    ${extraHead()}\n    <meta name="build-version" content="${commit} ${builtAt}" />\n    <script type="application/ld+json">${ld}</script>\n  </head>`);
 
 await writeFile(htmlPath, html);
+await writeFile(path.join(dist, 'version.json'), JSON.stringify({ commit, builtAt, prerendered: true }, null, 2) + '\n');
 
 // keep sitemap lastmod current
 const sitemapPath = path.join(dist, 'sitemap.xml');
